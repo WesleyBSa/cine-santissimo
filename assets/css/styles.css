@@ -1,235 +1,281 @@
-/* Reset básico */
+/* Reset básico para garantir consistência entre navegadores */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; /* Remove a margem padrão de todos os elementos */
+    padding: 0; /* Remove o padding padrão de todos os elementos */
+    box-sizing: border-box; /* Inclui padding e borda no tamanho total dos elementos */
 }
 
+/* Estilos básicos para o corpo da página */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Garante que o body ocupe a altura total da tela */
+    font-family: Arial, sans-serif; /* Define a fonte do texto */
+    line-height: 1.6; /* Define o espaçamento entre linhas */
+    display: flex; /* Usa flexbox para o layout */
+    flex-direction: column; /* Organiza o layout na vertical */
+    min-height: 100vh; /* Garante que o corpo tenha pelo menos a altura da tela */
+    background-color: #121212; /* Cor de fundo escura */
+    color: #e0e0e0; /* Cor do texto clara para contraste */
 }
 
-/* Navbar com z-index para garantir que esteja acima dos posts */
+/* Estilos para a barra de navegação */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #08478e;
-    color: #fff;
-    position: relative; /* Garantir que z-index funcione */
-    z-index: 10; /* Valor maior para estar acima de outros elementos */
+    display: flex; /* Usa flexbox para o layout da navbar */
+    justify-content: space-between; /* Distribui o espaço entre itens */
+    align-items: center; /* Alinha itens verticalmente ao centro */
+    padding: 10px 20px; /* Adiciona padding interno */
+    background-color: #1f1f1f; /* Cor de fundo cinza escuro */
+    color: #ffffff; /* Cor do texto branco */
+    position: relative; /* Define a posição relativa para o posicionamento dos itens */
+    z-index: 10; /* Define a camada da navbar acima dos outros elementos */
 }
 
-/* Logo com z-index para garantir que não seja coberta */
+/* Estilos para o logo dentro da navbar */
 .navbar .logo {
-    width: 30%;
-    z-index: 15; /* Maior que o z-index do menu para garantir visibilidade */
-    position: relative;
+    width: 30%; /* Define a largura do logo */
+    z-index: 15; /* Garante que o logo fique acima dos outros itens */
+    position: relative; /* Define a posição relativa para ajustes de layout */
 }
 
+/* Estilos para os links de navegação */
 .nav-links {
-    display: flex;
-    list-style: none;
+    display: flex; /* Usa flexbox para o layout dos links */
+    list-style: none; /* Remove os marcadores da lista */
 }
 
+/* Estilos para os links dentro da navbar */
 .nav-links li a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s; /* Adiciona uma transição suave */
+    color: #b0bec5; /* Cor dos links cinza claro */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    margin: 0 10px; /* Adiciona margem lateral aos links */
+    padding: 5px 10px; /* Adiciona padding interno aos links */
+    border-radius: 5px; /* Adiciona bordas arredondadas aos links */
+    transition: background-color 0.3s, transform 0.3s; /* Transição suave para mudanças de cor e transformação */
 }
 
+/* Estilos para os links ao passar o mouse */
 .nav-links li a:hover {
-    background-color: #2776d1;
-    transform: scale(1.05); /* Adiciona um leve aumento ao passar o mouse */
+    color: #1e1e1e;
+    background-color: #ff8a65; /* Cor de fundo escura ao passar o mouse */
+    transform: scale(1.05); /* Aumenta o tamanho do link ao passar o mouse */
 }
 
+/* Estilos para o ícone de menu (hamburger) */
 .hamburger {
-    display: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 4px;
+    display: none; /* Oculta o ícone por padrão */
+    cursor: pointer; /* Define o cursor como ponteiro */
+    flex-direction: column; /* Organiza os spans verticalmente */
+    gap: 4px; /* Espaçamento entre os spans */
 }
 
+/* Estilos para cada linha do ícone de menu */
 .hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    transition: 0.3s;
+    display: block; /* Faz cada linha do ícone ser um bloco */
+    width: 25px; /* Largura das linhas */
+    height: 3px; /* Altura das linhas */
+    background-color: #ffffff; /* Cor das linhas */
+    transition: 0.3s; /* Transição suave para transformações */
 }
 
+/* Estilos principais para a seção do conteúdo */
 main {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    flex: 1; /* Permite que o main cresça para preencher o espaço */
-    gap: 20px;
+    display: flex; /* Usa flexbox para o layout */
+    justify-content: space-between; /* Distribui o espaço entre itens */
+    padding: 20px; /* Adiciona padding interno */
+    flex: 1; /* Permite que o main ocupe o espaço restante */
+    gap: 20px; /* Espaçamento entre os itens */
 }
 
+/* Estilos para a seção de posts */
 .post-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    width: 100%;
+    display: grid; /* Usa grid layout para os posts */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Define o layout em colunas responsivas */
+    gap: 20px; /* Espaçamento entre os posts */
+    width: 100%; /* Largura total */
 }
 
+/* Estilos para cada post individual */
 .post {
-    background-color: #eafffe;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1; /* Garantir que esteja abaixo da navbar */
-    position: relative;
+    background-color: #1e1e1e; /* Cor de fundo escura para os posts */
+    padding: 15px; /* Adiciona padding interno */
+    border-radius: 8px; /* Adiciona bordas arredondadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Adiciona sombra para profundidade */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transição suave para transformações e sombras */
+    z-index: 1; /* Define a camada dos posts */
+    position: relative; /* Define a posição relativa para efeitos de transformação */
 }
 
+/* Estilos para o post ao passar o mouse */
 .post:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Aumenta a sombra ao passar o mouse */
 }
 
+/* Estilos para o título dos posts */
 .post-title {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #08478e;
+    font-size: 1.3em; /* Tamanho da fonte do título */
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+    color: #ff7a0c; /* Cor do título */
 }
 
+/* Estilos para a imagem dos posts */
 .post-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    object-fit: cover; /* Ajusta a imagem para cobrir o espaço do elemento */
+    width: 100%; /* Largura total da imagem */
+    height: auto; /* Altura automática para manter a proporção */
+    border-radius: 8px; /* Bordas arredondadas para a imagem */
+    margin-bottom: 10px; /* Espaçamento abaixo da imagem */
+    object-fit: cover; /* Cobre o contêiner mantendo a proporção */
 }
 
+/* Estilos para o texto dentro dos posts */
 .post-text {
-    font-size: 1em;
-    line-height: 1.5;
-    color: #333;
+    font-size: 1em; /* Tamanho da fonte do texto */
+    line-height: 1.5; /* Altura da linha para melhor legibilidade */
+    color: #bdbdbd; /* Cor do texto */
 }
 
-/* Estilo para o link de assistir */
+/* Estilos para o link de assistir */
 .watch-link {
-    margin-top: 10px;
+    margin-top: 10px; /* Espaçamento acima do link */
 }
 
+/* Estilos para o link dentro do watch-link */
 .watch-link a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #2776d1; /* Cor do link */
-    font-weight: bold;
-    transition: color 0.3s, transform 0.3s; /* Transição suave */
+    display: flex; /* Usa flexbox para o layout do link */
+    align-items: center; /* Alinha itens verticalmente ao centro */
+    text-decoration: none; /* Remove o sublinhado do link */
+    color: #40c4ff; /* Cor do texto do link */
+    font-weight: bold; /* Define o texto como negrito */
+    transition: color 0.3s, transform 0.3s; /* Transição suave para mudanças de cor e transformação */
 }
 
+/* Estilos para o link ao passar o mouse */
 .watch-link a:hover {
-    color: #08478e;
+    color: #84ffff; /* Cor do texto mais clara ao passar o mouse */
 }
 
+/* Estilos para o ícone dentro do link de assistir */
 .watch-link svg {
-    margin-right: 8px; /* Espaço entre o ícone e o texto */
-    transition: transform 0.3s;
+    margin-right: 8px; /* Espaçamento à direita do ícone */
+    transition: transform 0.3s; /* Transição suave para transformações */
 }
 
+/* Estilos para o ícone ao passar o mouse */
 .watch-link a:hover svg {
-    transform: scale(1.1); /* Aumenta levemente o ícone ao passar o mouse */
+    transform: scale(1.1); /* Aumenta o tamanho do ícone ao passar o mouse */
 }
 
-/* Estilos do Aside */
+/* Estilos para o aside */
 aside {
-    flex: 1;
-    padding-left: 20px;
+    flex: 1; /* Permite que o aside ocupe o espaço restante */
+    padding-left: 20px; /* Adiciona padding à esquerda */
 }
 
+/* Estilos para os itens de lista dentro do aside */
 aside li {
-    color: #ff5e00;
+    color: #ffab40; /* Cor dos itens da lista */
 }
 
+/* Estilos para os links dentro do aside */
 aside li a {
-    color: #8f3400;
+    color: #ff8a65; /* Cor dos links dentro do aside */
 }
 
+/* Estilos para os links dentro do aside ao passar o mouse */
 aside li a:hover {
-    color: #0141f0;
+    color: #ffd740; /* Cor mais clara ao passar o mouse */
 }
 
-/* Estilos do Footer */
+/* Estilos para o rodapé (footer) */
 footer {
-    background-color: #08478e;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: auto;
+    background-color: #1f1f1f; /* Cor de fundo cinza escuro */
+    color: #e0e0e0; /* Cor do texto claro */
+    text-align: center; /* Alinha o texto ao centro */
+    padding: 10px 0; /* Adiciona padding interno */
+    margin-top: auto; /* Move o rodapé para o final da página */
 }
 
-/* Responsividade */
+/* Estilos responsivos para telas menores */
 @media (max-width: 768px) {
+    /* Estilos para a barra de navegação no modo responsivo */
+    .navbar {
+        flex-direction: column; /* Alinha itens verticalmente */
+        align-items: flex-start; /* Alinha itens à esquerda */
+        position: relative; /* Define a posição relativa para o conteúdo abaixo do ícone de menu */
+    }
+
+    /* Estilos para os links de navegação no modo responsivo */
     .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #08478e;
-        position: absolute;
-        top: 60px; /* Ajuste para começar logo abaixo da navbar */
-        left: 0;
-        z-index: 9; /* Menor que a logo para não cobrir */
+        display: none; /* Oculta os links por padrão */
+        flex-direction: column; /* Organiza os links verticalmente */
+        width: 100%; /* Largura total */
+        background-color: #1f1f1f; /* Cor de fundo da navbar */
+        position: absolute; /* Posiciona os links acima do conteúdo */
+        top: 30px; /* Ajusta a posição para abrir abaixo da navbar */
+        left: 0; /* Alinha os links à esquerda */
+        z-index: 9; /* Define a camada dos links acima dos outros elementos */
+        transition: top 0.3s; /* Transição suave para a movimentação do menu */
     }
 
-    .nav-links li {
-        margin: 10px 0;
-    }
-
+    /* Exibe os links de navegação quando a classe 'active' está presente */
     .nav-links.active {
-        display: flex;
+        display: flex; /* Exibe os links */
     }
 
+    /* Estilos para o logo no modo responsivo */
+    .logo {
+        margin-left: 35%; /* Ajusta a margem para centralizar o logo */
+    }
+
+    /* Estilos para o ícone de menu (hamburger) no modo responsivo */
     .hamburger {
-        display: flex;
-        z-index: 11; /* Abaixo da logo mas acima do menu */
+        display: flex; /* Exibe o ícone de menu */
+        position: absolute; /* Posiciona o ícone acima do conteúdo */
+        top: 10px; /* Alinha verticalmente o ícone */
+        left: 20px; /* Alinha horizontalmente o ícone */
+        z-index: 11; /* Define a camada do ícone acima dos outros elementos */
     }
 
+    /* Estilos para a transformação do ícone de menu quando ativo */
     .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
+        transform: rotate(45deg) translate(5px, 5px); /* Rotaciona e move a primeira linha */
     }
 
+    /* Estilos para a segunda linha do ícone de menu quando ativo */
     .hamburger.active span:nth-child(2) {
-        opacity: 0;
+        opacity: 0; /* Torna a segunda linha invisível */
     }
 
+    /* Estilos para a transformação da terceira linha do ícone de menu quando ativo */
     .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
+        transform: rotate(-45deg) translate(5px, -5px); /* Rotaciona e move a terceira linha */
     }
 
-    /* Tornar imagens responsivas em smartphones */
+    /* Estilos para a imagem dos posts no modo responsivo */
     .post-image {
-        max-width: 100%;
-        height: auto;
+        max-width: 100%; /* Define a largura máxima da imagem */
+        height: auto; /* Altura automática para manter a proporção */
     }
 
+    /* Estilos para o link de assistir no modo responsivo */
     .watch-link a {
-        font-size: 0.9em; /* Ajusta o tamanho da fonte em dispositivos menores */
+        font-size: 0.9em; /* Tamanho da fonte menor */
     }
-    
+
+    /* Estilos para o ícone dentro do link de assistir no modo responsivo */
     .watch-link svg {
-        width: 20px; /* Ajusta o tamanho do ícone em dispositivos menores */
-        height: 20px;
+        width: 20px; /* Largura menor do ícone */
+        height: 20px; /* Altura menor do ícone */
     }
 
-    /* Mover o aside para o final no modo responsivo */
+    /* Estilos para o aside no modo responsivo */
     aside {
-        order: 2; /* Move o aside para depois do conteúdo principal */
-        width: 100%; /* Usa toda a largura disponível */
-        padding: 20px 0 0 0; /* Ajusta o padding para parecer um bloco separado */
+        order: 2; /* Move o aside para o final do layout */
+        width: 100%; /* Largura total */
+        padding: 20px 0 0 0; /* Padding adicional no topo */
+        margin-top: 20px; /* Espaço adicional no topo */
     }
 
+    /* Estilos para o main no modo responsivo */
     main {
-        flex-direction: column;
-        padding: 10px;
+        flex-direction: column; /* Organiza os itens verticalmente */
+        padding: 10px; /* Padding interno reduzido */
     }
 }
