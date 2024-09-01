@@ -1,0 +1,235 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o body ocupe a altura total da tela */
+}
+
+/* Navbar com z-index para garantir que esteja acima dos posts */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #08478e;
+    color: #fff;
+    position: relative; /* Garantir que z-index funcione */
+    z-index: 10; /* Valor maior para estar acima de outros elementos */
+}
+
+/* Logo com z-index para garantir que não seja coberta */
+.navbar .logo {
+    width: 30%;
+    z-index: 15; /* Maior que o z-index do menu para garantir visibilidade */
+    position: relative;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s; /* Adiciona uma transição suave */
+}
+
+.nav-links li a:hover {
+    background-color: #2776d1;
+    transform: scale(1.05); /* Adiciona um leve aumento ao passar o mouse */
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    transition: 0.3s;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    flex: 1; /* Permite que o main cresça para preencher o espaço */
+    gap: 20px;
+}
+
+.post-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.post {
+    background-color: #eafffe;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1; /* Garantir que esteja abaixo da navbar */
+    position: relative;
+}
+
+.post:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.post-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #08478e;
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    object-fit: cover; /* Ajusta a imagem para cobrir o espaço do elemento */
+}
+
+.post-text {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Estilo para o link de assistir */
+.watch-link {
+    margin-top: 10px;
+}
+
+.watch-link a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #2776d1; /* Cor do link */
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s; /* Transição suave */
+}
+
+.watch-link a:hover {
+    color: #08478e;
+}
+
+.watch-link svg {
+    margin-right: 8px; /* Espaço entre o ícone e o texto */
+    transition: transform 0.3s;
+}
+
+.watch-link a:hover svg {
+    transform: scale(1.1); /* Aumenta levemente o ícone ao passar o mouse */
+}
+
+/* Estilos do Aside */
+aside {
+    flex: 1;
+    padding-left: 20px;
+}
+
+aside li {
+    color: #ff5e00;
+}
+
+aside li a {
+    color: #8f3400;
+}
+
+aside li a:hover {
+    color: #0141f0;
+}
+
+/* Estilos do Footer */
+footer {
+    background-color: #08478e;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #08478e;
+        position: absolute;
+        top: 60px; /* Ajuste para começar logo abaixo da navbar */
+        left: 0;
+        z-index: 9; /* Menor que a logo para não cobrir */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+        z-index: 11; /* Abaixo da logo mas acima do menu */
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Tornar imagens responsivas em smartphones */
+    .post-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .watch-link a {
+        font-size: 0.9em; /* Ajusta o tamanho da fonte em dispositivos menores */
+    }
+    
+    .watch-link svg {
+        width: 20px; /* Ajusta o tamanho do ícone em dispositivos menores */
+        height: 20px;
+    }
+
+    /* Mover o aside para o final no modo responsivo */
+    aside {
+        order: 2; /* Move o aside para depois do conteúdo principal */
+        width: 100%; /* Usa toda a largura disponível */
+        padding: 20px 0 0 0; /* Ajusta o padding para parecer um bloco separado */
+    }
+
+    main {
+        flex-direction: column;
+        padding: 10px;
+    }
+}
