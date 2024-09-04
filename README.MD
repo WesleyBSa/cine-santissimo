@@ -1,6 +1,6 @@
 # Cine Santíssimo
 
-![Cin Santíssimo Logo](assets/img/logo-bg.png)
+![Cine Santíssimo Logo](assets/img/logo-bg.png)
 
 O Cine Santíssimo é um projeto que visa resgatar e celebrar os clássicos do cinema, oferecendo uma experiência online onde os usuários podem explorar informações sobre filmes icônicos, sinopses e muito mais.
 
@@ -12,11 +12,11 @@ A nossa proposta é apresentar um projeto utilizando Html5, Css3, respeitando os
 
 ### Visualização Normal
 
-(assets/img/desktop.png)
+![Desktop print](assets/img/desktop.png)
 
 ### Visualização Responsiva
 
-(assets/img/mobile.png)
+![Mobile print](assets/img/mobile.png)
 
 ## Tecnologias Utilizadas
 
@@ -28,7 +28,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 | ![CSS Logo](https://img.icons8.com/color/48/000000/css3.png) | **CSS** - Estilização e layout do site. |
 | ![JavaScript Logo](https://img.icons8.com/color/48/000000/javascript.png) | **JavaScript** - Interatividade e funcionalidades dinâmicas. |
 | ![Canva Logo](https://img.icons8.com/color/48/000000/canva.png) | **Canva** - Design e criação de gráficos e imagens. |
-| ![Free-Icon Logo](https://img.icons8.com/color/48/000000/free.png) | **Free-Icon** - Ícones e gráficos adicionais. |
+
 
 ## Funcionalidades
 
